@@ -327,7 +327,7 @@ h1, h2, h3, h4, h5, h6,
   color: #152c5b; }
 
 h1, .h1 {
-  font-size: 2.5rem; }
+  font-size: 1.5rem; }
   @media (max-width: 1200px) {
     h1, .h1 {
       font-size: calc(1.375rem + 1.5vw) ; } }
