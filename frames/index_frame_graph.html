@@ -24,15 +24,9 @@
 				<div class="col">
 					<div class="card">
 						<div class="card-body">
-							<h6 class="mt-3">Pedestrians - Top origins/destinations - MIORIGINCENTROIDPEDESTRIAN & MIDESTINATIONCENTROIDPEDESTRIAN</h6>
+							<h6 class="mt-3">Polar : top 10</h6>
 							<table class=table-responsive>
 									<tr>
-									<td>
-											<div id="pivot7" style="display:none;"></div>  <!--le pivot-->
-									</td>
-									<td>
-											<div><canvas id="chartcontainer7" width="280"></canvas></div> <!--le chart-->
-									</td>
 									<td>
 											<div id="pivot1" style="display:none;"></div>  <!--le pivot-->
 									</td>
@@ -54,7 +48,7 @@
 				<div class="col">
 					<div class="card">
 						<div class="card-body">
-							<h6 class="mt-3">Congestion index (flow in veh/h by section) - MISECT</h6>
+							<h6 class="mt-3">Bar : top 200</h6>
 							<table class=table-responsive> <!--colonne de gauche : pivot / colonne de droite : chart-->
 											<tr>
 											<td>
@@ -78,62 +72,14 @@
 				<div class="col">
 					<div class="card">
 						<div class="card-body">
-							<h6 class="mt-3">Flow/speed ratio over time (each 10mn during peak hour) - MISYS</h6>
-								<table class=table-responsive> <!--colonne de gauche : pivot / colonne de droite : chart-->
-									<tr>
-									<td>
-											<div id="pivot3" style="display:none;"></div>  <!--le pivot-->
-									</td>
-									<td>
-											<div><canvas id="chartcontainer3" width= "560" height="500"></canvas></div> <!--le chart-->
-									</td>
-									</tr>
-								</table>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-	<section>
-		<div class="container-md">
-			<div class="row">
-				<div class="col">
-					<div class="card">
-						<div class="card-body">
-							<h6 class="mt-3">Stats by vehicle type - MISYS</h6>
-								<table class=table-responsive> <!--colonne de gauche : pivot / colonne de droite : chart-->
-									<tr>
-									<td>
-											<div id="pivot4" style="display:none;"></div>  <!--le pivot-->
-									</td>
-									<td>
-											<div><canvas id="chartcontainer4" width= "560" height="500"></canvas></div> <!--le chart-->
-									</td>
-									</tr>
-								</table>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section>
-		<div class="container-md">
-			<div class="row">
-				<div class="col">
-					<div class="card">
-						<div class="card-body">
-							<h6 class="mt-3">Pollutants types distribution - MISYSPO</h6>
+							<h6 class="mt-3">Doughnut : percentages</h6>
 							<table class=table-responsive> <!--colonne de gauche : pivot / colonne de droite : chart-->
 								<tr>
 								<td>
-										<div id="pivot10" style="display:none;"></div>  <!--le pivot-->
+										<div id="pivot3" style="display:none;"></div>  <!--le pivot-->
 								</td>
 								<td>
-										<div><canvas id="chartcontainer10" width="560"></canvas></div> <!--le chart-->
+										<div><canvas id="chartcontainer3" width="560"></canvas></div> <!--le chart-->
 								</td>
 								</tr>
 							</table>
@@ -144,94 +90,10 @@
 		</div>
 	</section>
 
-	<section>
-		<div class="container-md">
-			<div class="row">
-				<div class="col">
-					<div class="card">
-						<div class="card-body">
-							<h6 class="mt-3">Pollution emissions over time (each 10mn during peak hour) - MISECTIEM</h6>
-							<table class=table-responsive> <!--colonne de gauche : pivot / colonne de droite : chart-->
-								<tr>
-								<td>
-										<div id="pivot6" style="display:none;"></div>  <!--le pivot-->
-								</td>
-								<td>
-										<div><canvas id="chartcontainer6" width= "560" height="500"></canvas></div> <!--le chart-->
-								</td>
-								</tr>
-							</table>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+	<script src="graph/1_graph.js"></script>
+	<script src="graph/2_graph.js"></script>
+	<script src="graph/3_graph.js"></script>
 
-	<section>
-		<div class="container-md">
-			<div class="row">
-				<div class="col">
-					<div class="card">
-						<div class="card-body">
-							<h6 class="mt-3">Top bus stops - MICROPTPEDESTRIAN</h6>
-							<table class=table-responsive> <!--colonne de gauche : pivot / colonne de droite : chart-->
-								<tr>
-								<td>
-										<div id="pivot11" style="display:none;"></div>  <!--le pivot-->
-								</td>
-								<td>
-										<div><canvas id="chartcontainer11" width= "280"></canvas></div> <!--le chart-->
-								</td>
-								<td>
-										<div id="pivot12" style="display:none;"></div>  <!--le pivot-->
-								</td>
-								<td>
-										<div><canvas id="chartcontainer12" width= "280"></canvas></div> <!--le chart-->
-								</td>
-								</tr>
-							</table>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section>
-		<div class="container-md">
-			<div class="row">
-				<div class="col">
-					<div class="card">
-						<div class="card-body">
-							<h6 class="mt-3">PT Stats for the 10 most frequent lines - MIPT</h6>
-							<table class=table-responsive> <!--colonne de gauche : pivot / colonne de droite : chart-->
-								<tr>
-								<td>
-										<div id="pivot13" style="display:none;"></div>  <!--le pivot-->
-								</td>
-								<td>
-										<div><canvas id="chartcontainer13" width= "560" height="450"></canvas></div> <!--le chart-->
-								</td>
-								</tr>
-							</table>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<script src="graph/origin_graph.js"></script>
-	<script src="graph/destination_graph.js"></script>
-	<script src="graph/sections_graph.js"></script>
-	<script src="graph/averages_graph.js"></script>
-	<script src="graph/vehicle_graph.js"></script>
-	<script src="graph/pollutants_graph.js"></script>
-	<script src="graph/pollutants_sum_graph.js"></script>
-	<script src="graph/bus-stop-boarding_graph.js"></script>
-	<script src="graph/bus-stop-alighting_graph.js"></script>
-	<script src="graph/pt-stats_graph.js"></script>
 </body>
 
 </html>
