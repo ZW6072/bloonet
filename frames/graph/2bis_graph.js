@@ -1,4 +1,4 @@
-var pivot2 = new WebDataRocks({
+var pivotA2bis = new WebDataRocks({
     container: "#pivotA2bis",
     toolbar: false, //les boutons du bandeau de base sont masqués et remplacés par le bouton custom d'appel d'un csv local
     height: 580,
