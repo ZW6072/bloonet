@@ -121,7 +121,7 @@ function drawChartA3(rawData) {
         },
     };
 
-    var ctx = document.getElementById("chartcontainer3").getContext('2d');
+    var ctx = document.getElementById("chartcontainerA3").getContext('2d');
 		var chart = new Chart(ctx, {
         data: data_for_charts,
         type: 'doughnut',

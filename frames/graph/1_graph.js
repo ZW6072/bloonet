@@ -105,7 +105,7 @@ function drawChartA1(rawData) {
         },
     };
 
-    var ctx = document.getElementById("chartcontainer1").getContext('2d');
+    var ctx = document.getElementById("chartcontainerA1").getContext('2d');
 		var chart = new Chart(ctx, {
         data: data_for_charts,
         type: 'polarArea',

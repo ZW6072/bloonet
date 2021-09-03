@@ -124,7 +124,7 @@ function drawChartA2bis(rawData) {
       blue: 'rgb(54, 162, 235, 0.8)'
     };
 
-    var ctx = document.getElementById("chartcontainer2").getContext("2d");
+    var ctx = document.getElementById("chartcontainerA2bis").getContext("2d");
     var chart = new Chart(ctx, {
         data: data_for_charts,
         type: 'bar',
