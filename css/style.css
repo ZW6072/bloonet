@@ -1359,7 +1359,7 @@ pre {
 	text-align: center ;
     border-top: 1px solid #eaecf3; }
   .table td {
-    padding: 1rem;
+    padding: 0rem;
     vertical-align: middle;
     border-top: 1px solid #eaecf3; }
   .table thead th {

@@ -6,35 +6,20 @@ var pivot1 = new WebDataRocks({
     report: {
 			"dataSource": {
           "dataSourceType": "csv",
-					"filename": "https://zw6072.github.io/depot_data/MIORIGINCENTROIDPEDESTRIAN.csv" //seules les sources en ligne peuvent être lues, sauf à passer par le bouton d'appel d'un csv
+					"filename": "https://zw6072.github.io/depot_data/site_bretagne.csv" //seules les sources en ligne peuvent être lues, sauf à passer par le bouton d'appel d'un csv
       },
 			"slice": {
 				"reportFilters": [
-            {
-                "uniqueName": "sid",
-                "filter": {
-                    "members": [
-                        "sid.0"  //filtre le rapport avec "sid" = "0"
-                    ]
-                }
-            },
-            {
-						"uniqueName": "ent", //champs "ent" en ligne
-            "filter": { //ce champs est filtré pour retirer la valeur "0"
-                "members": [
-                    "ent.0"
-                ],
-                "negation": false
-            		},
-						},
         ],
 				"rows": [
 						{
-						"uniqueName": "oid", //champs "ent" en ligne
+						"uniqueName": "Name",
+            "filter": {
+                "type": "top",
+                "quantity": 20,
+                "measure": "Population"
+              },
 						},
-						{
-						"uniqueName": "mesures",
-						}
 				],
 				"columns": [
 						{
@@ -42,9 +27,7 @@ var pivot1 = new WebDataRocks({
 				],
 				"measures": [
 		 				{
-						"uniqueName": "pedestriansIn",
-						"aggregation": "sum",
-						"format": "currency"
+						"uniqueName": "Population",
 		 				}
 	 			]
 			}
@@ -86,12 +69,17 @@ function drawChart1(rawData) {
         datasets: [{
             data: data.data,
             backgroundColor: [
-                'rgba(74, 216, 195, 0.4)',
-                'rgba(56, 95, 220, 0.5)',
-                'rgba(255, 87, 51, 0.5)',
-                'rgba(88, 24, 69 , 0.5)',
-                'rgba(218, 247, 166, 0.5)',
-                'rgba(231, 76, 60, 0.5)',
+                'rgba(0, 170, 255, 0.4)',
+                'rgba(105, 175, 35, 0.5)',
+                'rgba(255, 195, 0, 0.5)',
+                'rgba(230, 45, 135, 0.5)',
+                'rgba(85, 35, 130, 0.5)',
+                'rgba(68, 74, 106, 0.5)',
+                'rgba(190, 205, 0, 0.5)',
+                'rgba(0, 85, 127, 0.5)',
+                'rgba(53, 87, 18, 0.5)',
+                'rgba(123, 15, 67, 0.5)',
+                'rgba(231, 230, 230, 0.5)',
             ]
         }],
         labels: data.labels
@@ -101,10 +89,10 @@ function drawChart1(rawData) {
           responsive: true,
           legend: {
               display: true,
-              position: 'left',
+              position: 'right',
           },
           title: {
-              display: true,
+              display: false,
               fontSize: 18,
               text: 'Top origins'
           },

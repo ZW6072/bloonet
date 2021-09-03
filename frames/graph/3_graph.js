@@ -6,50 +6,40 @@ var pivot3 = new WebDataRocks({
     report: {
 			"dataSource": {
           "dataSourceType": "csv",
-					"filename": "https://zw6072.github.io/depot_data/MISYSPO.csv" //seules les sources en ligne peuvent être lues, sauf à passer par le bouton d'appel d'un csv
+					"filename": "https://zw6072.github.io/depot_data/site_bretagne.csv" //seules les sources en ligne peuvent être lues, sauf à passer par le bouton d'appel d'un csv
       },
       "options": {
         "grid": {
             "showGrandTotals": "on"
         },
       },
-      "formats": [
-        {
-        "name": "",
-        "decimalPlaces": 0
-        },
-      ],
 			"slice": {
+        "sorting": {
+            "column": {
+                "type": "asc",
+                "tuple": [],
+                "measure": "Population"
+              },
+        },
 				"reportFilters": [
-            {
-                "uniqueName": "sid",
-                "filter": {
-                    "members": [
-                        "sid.0"  //filtre le rapport avec "sid" = "0"
-                    ]
-                }
-            },
-            {
-            "uniqueName": "ent", //champs "ent" en ligne
-            "filter": {
-                "members": [
-                    "ent.0"  //filtre le rapport avec "sid" = "0"
-                ]
-              }
-            },
         ],
 				"columns": [
 				],
 				"rows": [
           {
-          "uniqueName": "npollutant_K",
+          "uniqueName": "Name", //champs "ent" en ligne
+          "filter": {
+              "type": "top",
+              "quantity": 570,
+              "measure": "Population"
+            },
           },
-				],
+        ],
 				"measures": [
           {
-          "uniqueName": "vpollutant",
-          "aggregation": "sum",
-          },
+          "uniqueName": "Population",
+          "aggregation": "percent"
+          }
 	 			],
 			},
 		},
@@ -90,10 +80,17 @@ function drawChart3(rawData) {
             data: data.data,
             borderWidth: 2,
             backgroundColor: [
-              'rgb(255, 99, 132, 0.7)',
-              'rgba(74, 100, 195, 0.7)',
-              'rgba(241, 196, 15, 0.7)',
-              'rgba(14, 102, 85, 0.7)',
+                'rgba(0, 170, 255, 0.4)',
+                'rgba(105, 175, 35, 0.5)',
+                'rgba(255, 195, 0, 0.5)',
+                'rgba(230, 45, 135, 0.5)',
+                'rgba(85, 35, 130, 0.5)',
+                'rgba(68, 74, 106, 0.5)',
+                'rgba(190, 205, 0, 0.5)',
+                'rgba(0, 85, 127, 0.5)',
+                'rgba(53, 87, 18, 0.5)',
+                'rgba(123, 15, 67, 0.5)',
+                'rgba(231, 230, 230, 0.5)',
             ],
             tension: 0.5,
             stepped: true,
@@ -102,14 +99,14 @@ function drawChart3(rawData) {
             //stack: ,
         },
       ],
-        labels: ['CO2 (kg)','NOX (kg)', 'VOC (kg)','PM (kg)'],
+        labels: data.labels,
     };
     options = {
         plugins: {
           responsive: true,
           legend: {
-              display: true,
-              position: 'right',
+              display: false,
+              position: 'bottom',
           },
           title: {
               display: false,

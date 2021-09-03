@@ -6,45 +6,36 @@ var pivot2 = new WebDataRocks({
     report: {
 			"dataSource": {
           "dataSourceType": "csv",
-					"filename": "https://zw6072.github.io/depot_data/MISECT.csv" //seules les sources en ligne peuvent être lues, sauf à passer par le bouton d'appel d'un csv
+					"filename": "https://zw6072.github.io/depot_data/site_bretagne.csv" //seules les sources en ligne peuvent être lues, sauf à passer par le bouton d'appel d'un csv
       },
 			"slice": {
-				"reportFilters": [{
-                "uniqueName": "sid" //filtre tout le rapport avec le champs "sid"
-            },
-            {
-                "uniqueName": "sid",
-                "filter": {
-                    "members": [
-                        "sid.0"  //filtre le rapport avec "sid" = "0"
-                    ]
-                }
-            }
+        "reportFilters": [
         ],
         "sorting": {
             "column": {
                 "type": "asc",
                 "tuple": [],
-                "measure": "flow"
+                "measure": "Population"
               },
         },
 				"rows": [
             {
-						"uniqueName": "oid", //champs "ent" en ligne
+						"uniqueName": "Name", //champs "ent" en ligne
             "filter": {
                 "type": "top",
-                "quantity": 300,
-                "measure": "flow"
+                "quantity": 200,
+                "measure": "Population"
               },
 						},
 				],
 				"columns": [
 						{
+
 						}
 				],
 				"measures": [
 		 				{
-						"uniqueName": "flow",
+						"uniqueName": "Population",
 						"aggregation": "sum",
 						"format": "currency"
 		 				}
@@ -88,13 +79,17 @@ function drawChart2(rawData) {
             data: data.data,
             barThickness: 1.5,
             backgroundColor: [
-                "#FF6384",
-                "#4BC0C0",
-                "#FFCE56",
-                "#E7E9ED",
-                "#36A2EB",
-                "#9ccc65",
-                "#b3e5fc"
+                'rgba(0, 170, 255, 0.4)',
+                'rgba(105, 175, 35, 0.5)',
+                'rgba(255, 195, 0, 0.5)',
+                'rgba(230, 45, 135, 0.5)',
+                'rgba(85, 35, 130, 0.5)',
+                'rgba(68, 74, 106, 0.5)',
+                'rgba(190, 205, 0, 0.5)',
+                'rgba(0, 85, 127, 0.5)',
+                'rgba(53, 87, 18, 0.5)',
+                'rgba(123, 15, 67, 0.5)',
+                'rgba(231, 230, 230, 0.5)',
             ]
         }],
         labels: data.labels
@@ -136,11 +131,16 @@ function drawChart2(rawData) {
         options: options
     });
 
-    var colorChangeValue = 14; //set this to whatever is the deciding color change value
+    var colorChangeValue = 5271; //set this to whatever is the deciding color change value
     var dataset = chart.data.datasets[0];
     for (var i = 0; i < dataset.data.length; i++) {
       if (dataset.data[i] > colorChangeValue) {
         dataset.backgroundColor[i] = chartColors.red;
+      }
+    };
+    for (var i = 0; i < dataset.data.length; i++) {
+      if (dataset.data[i] < colorChangeValue) {
+        dataset.backgroundColor[i] = chartColors.blue;
       }
     };
     chart.update();
