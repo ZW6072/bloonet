@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="X-UA-Compatible"
+		  content="IE=9; IE=8; IE=7" />
+	<meta content="text/html; charset=UTF-8"
+		  http-equiv="content-type">
+	<meta name="viewport"
+		  content="width=1024">
+	<title>Bloonet</title>
+	<link href="css/style.css" rel="stylesheet">
+	<link href="https://cdn.webdatarocks.com/latest/webdatarocks.min.css" rel="stylesheet"/>
+	<script src="https://cdn.webdatarocks.com/latest/webdatarocks.toolbar.min.js"></script>
+	<script src="https://cdn.webdatarocks.com/latest/webdatarocks.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+	<section>
+		<div class="container-md">
+			<div class="row">
+				<div class="col">
+					<div class="card">
+						<div class="card-body">
+							<h6 class="mt-3">Tx - Most efficient sites</h6>
+							<table class=table-responsive>
+									<tr>
+									<td>
+											<div id="pivot1" style="display:none;"></div>  <!--le pivot-->
+									</td>
+									<td>
+											<div><canvas id="chartcontainer1" width="560"></canvas></div> <!--le chart-->
+									</td>
+									</tr>
+								</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section>
+		<div class="container-md">
+			<div class="row">
+				<div class="col">
+					<div class="card">
+						<div class="card-body">
+							<h6 class="mt-3">Tx - Ranking</h6>
+							<table class=table-responsive> <!--colonne de gauche : pivot / colonne de droite : chart-->
+											<tr>
+											<td>
+												<div id="pivot2" style="display:none;"></div> <!--masque le pivot pour ne garder que le chart/"style=display:none;-->  <!--le pivot-->
+											</td>
+											<td>
+												<div><canvas id="chartcontainer2" width= "560" height="500"></canvas></div> <!--le chart-->
+											</td>
+											</tr>
+										</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section>
+		<div class="container-md">
+			<div class="row">
+				<div class="col">
+					<div class="card">
+						<div class="card-body">
+							<h6 class="mt-3">Tx - Distribution</h6>
+							<table class=table-responsive> <!--colonne de gauche : pivot / colonne de droite : chart-->
+								<tr>
+								<td>
+										<div id="pivot3" style="display:none;"></div>  <!--le pivot-->
+								</td>
+								<td>
+										<div><canvas id="chartcontainer3" width="560"></canvas></div> <!--le chart-->
+								</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="graph/1bis_graph.js"></script>
+	<script src="graph/2bis_graph.js"></script>
+	<script src="graph/3bis_graph.js"></script>
+
+</body>
+
+</html>

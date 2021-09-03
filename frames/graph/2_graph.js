@@ -1,5 +1,5 @@
 var pivot2 = new WebDataRocks({
-    container: "#pivot2",
+    container: "#pivot#2",
     toolbar: false, //les boutons du bandeau de base sont masqués et remplacés par le bouton custom d'appel d'un csv local
     height: 580,
     width: 900,
@@ -43,16 +43,16 @@ var pivot2 = new WebDataRocks({
 			}
 		},
     reportcomplete: function() {
-      pivot2.off("reportcomplete");
-      createChart2(); //quand le pivot est créé, le chart peut être créé
+      pivot#2.off("reportcomplete");
+      createChart#2(); //quand le pivot est créé, le chart peut être créé
     }
 });
 
-function createChart2() {
-    pivot2.getData({}, drawChart2, updateChart2);
+function createChart#2() {
+    pivot#2.getData({}, drawChart2, updateChart2);
 }
 
-function prepareDataFunction2(rawData) {
+function prepareDataFunction#2(rawData) {
     var result = {};
     var labels = [];
     var data = [];
@@ -72,8 +72,8 @@ function prepareDataFunction2(rawData) {
     return result;
 }
 
-function drawChart2(rawData) {
-    var data = prepareDataFunction2(rawData);
+function drawChart#2(rawData) {
+    var data = prepareDataFunction#2(rawData);
     var data_for_charts = {
         datasets: [{
             data: data.data,
@@ -102,9 +102,9 @@ function drawChart2(rawData) {
               position: 'right',
           },
           title: {
-              display: false,
+              display: true,
               fontSize: 18,
-              text: 'Profit by Countries'
+              text: 'Covered households site by site'
           },
           scale: {
               ticks: {
@@ -146,7 +146,7 @@ function drawChart2(rawData) {
     chart.update();
 }
 
-function updateChart2(rawData) {
-    chart.destroy2();
-    drawChart2(rawData);
+function updateChart#2(rawData) {
+    chart.destroy#2();
+    drawChart#2(rawData);
 }

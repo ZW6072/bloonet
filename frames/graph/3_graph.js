@@ -1,5 +1,5 @@
 var pivot3 = new WebDataRocks({
-    container: "#pivot3",
+    container: "#pivot#3",
     toolbar: true, //lepivs boutons du bandeau de base sont masqués et remplacés par le bouton custom d'appel d'un csv local
     height: 400,
     width: 400,
@@ -44,16 +44,16 @@ var pivot3 = new WebDataRocks({
 			},
 		},
     reportcomplete: function() {
-      pivot3.off("reportcomplete");
-      createChart3(); //quand le pivot est créé, le chart peut être créé
+      pivot#3.off("reportcomplete");
+      createChart#3(); //quand le pivot est créé, le chart peut être créé
     }
 });
 
-function createChart3() { //le chart est créé
+function createChart#3() { //le chart est créé
         pivot3.getData({}, drawChart3, updateChart3);
     };
 
-function prepareDataFunction10(rawData) {
+function prepareDataFunction#3(rawData) {
     var result = {};
     var labels = [];
     var data = [];
@@ -73,8 +73,8 @@ function prepareDataFunction10(rawData) {
     return result;
 };
 
-function drawChart3(rawData) {
-    var data = prepareDataFunction10(rawData);
+function drawChart#3(rawData) {
+    var data = prepareDataFunction#3(rawData);
     var data_for_charts = {
         datasets: [{
             data: data.data,
@@ -109,9 +109,9 @@ function drawChart3(rawData) {
               position: 'bottom',
           },
           title: {
-              display: false,
+              display: true,
               fontSize: 18,
-              text: 'Profit by Countries'
+              text: 'Percentage of covered households by site'
           },
         },
         elements: {
@@ -129,7 +129,7 @@ function drawChart3(rawData) {
     });
 };
 
-function updateChart3(rawData) {
-    chart.destroy10();
-    drawChart3(rawData);
+function updateChart#3(rawData) {
+    chart.destroy#3();
+    drawChart#3(rawData);
 };
