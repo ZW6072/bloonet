@@ -1,5 +1,5 @@
 var pivot3 = new WebDataRocks({
-    container: "#pivot#3bis",
+    container: "#pivotA3bis",
     toolbar: true, //lepivs boutons du bandeau de base sont masqués et remplacés par le bouton custom d'appel d'un csv local
     height: 400,
     width: 400,
@@ -44,16 +44,16 @@ var pivot3 = new WebDataRocks({
 			},
 		},
     reportcomplete: function() {
-      pivot#3bis.off("reportcomplete");
-      createChart#3bis(); //quand le pivot est créé, le chart peut être créé
+      pivotA3bis.off("reportcomplete");
+      createChartA3bis(); //quand le pivot est créé, le chart peut être créé
     }
 });
 
-function createChart#3bis() { //le chart est créé
+function createChartA3bis() { //le chart est créé
         pivot3.getData({}, drawChart3, updateChart3);
     };
 
-function prepareDataFunction#3bis(rawData) {
+function prepareDataFunctionA3bis(rawData) {
     var result = {};
     var labels = [];
     var data = [];
@@ -73,8 +73,8 @@ function prepareDataFunction#3bis(rawData) {
     return result;
 };
 
-function drawChart#3bis(rawData) {
-    var data = prepareDataFunction#3bis(rawData);
+function drawChartA3bis(rawData) {
+    var data = prepareDataFunctionA3bis(rawData);
     var data_for_charts = {
         datasets: [{
             data: data.data,
@@ -129,7 +129,7 @@ function drawChart#3bis(rawData) {
     });
 };
 
-function updateChart#3bis(rawData) {
-    chart.destroy#3bis();
-    drawChart#3bis(rawData);
+function updateChartA3bis(rawData) {
+    chart.destroyA3bis();
+    drawChartA3bis(rawData);
 };

@@ -1,5 +1,5 @@
 var pivot2 = new WebDataRocks({
-    container: "#pivot#2bis",
+    container: "#pivotA2bis",
     toolbar: false, //les boutons du bandeau de base sont masqués et remplacés par le bouton custom d'appel d'un csv local
     height: 580,
     width: 900,
@@ -43,16 +43,16 @@ var pivot2 = new WebDataRocks({
 			}
 		},
     reportcomplete: function() {
-      pivot#2bis.off("reportcomplete");
-      createChart#2bis(); //quand le pivot est créé, le chart peut être créé
+      pivotA2bis.off("reportcomplete");
+      createChartA2bis(); //quand le pivot est créé, le chart peut être créé
     }
 });
 
-function createChart#2bis() {
-    pivot#2bis.getData({}, drawChart2, updateChart2);
+function createChartA2bis() {
+    pivotA2bis.getData({}, drawChart2, updateChart2);
 }
 
-function prepareDataFunction#2bis(rawData) {
+function prepareDataFunctionA2bis(rawData) {
     var result = {};
     var labels = [];
     var data = [];
@@ -72,8 +72,8 @@ function prepareDataFunction#2bis(rawData) {
     return result;
 }
 
-function drawChart#2bis(rawData) {
-    var data = prepareDataFunction#2bis(rawData);
+function drawChartA2bis(rawData) {
+    var data = prepareDataFunctionA2bis(rawData);
     var data_for_charts = {
         datasets: [{
             data: data.data,
@@ -146,7 +146,7 @@ function drawChart#2bis(rawData) {
     chart.update();
 }
 
-function updateChart#2bis(rawData) {
-    chart.destroy#2bis();
-    drawChart#2bis(rawData);
+function updateChartA2bis(rawData) {
+    chart.destroyA2bis();
+    drawChartA2bis(rawData);
 }
