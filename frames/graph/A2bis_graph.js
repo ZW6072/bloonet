@@ -49,7 +49,7 @@ var pivotA2bis = new WebDataRocks({
 });
 
 function createChartA2bis() {
-    pivotA2bis.getData({}, drawChart2, updateChart2);
+    pivotA2bis.getData({}, drawChartA2bis, updateChartA2bis);
 }
 
 function prepareDataFunctionA2bis(rawData) {

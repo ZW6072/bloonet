@@ -50,7 +50,7 @@ var pivotA3 = new WebDataRocks({
 });
 
 function createChartA3() { //le chart est créé
-        pivot3.getData({}, drawChart3, updateChart3);
+        pivotA3.getData({}, drawChartA3, updateChartA3);
     };
 
 function prepareDataFunctionA3(rawData) {
