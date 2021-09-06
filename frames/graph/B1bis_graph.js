@@ -1,12 +1,12 @@
-var pivotA1bis = new WebDataRocks({
-    container: "#pivotA1bis",
+var pivotB1bis = new WebDataRocks({
+    container: "#pivotB1bis",
     toolbar: false, //les boutons du bandeau de base sont masqués et remplacés par le bouton custom d'appel d'un csv local
     height: 400,
     width: 400,
     report: {
 			"dataSource": {
           "dataSourceType": "csv",
-					"filename": "https://zw6072.github.io/depot_data/bloonet/sites_france.csv" //seules les sources en ligne peuvent être lues, sauf à passer par le bouton d'appel d'un csv
+					"filename": "https://zw6072.github.io/depot_data/bloonet/sites_bretagne.csv" //seules les sources en ligne peuvent être lues, sauf à passer par le bouton d'appel d'un csv
       },
 			"slice": {
 				"reportFilters": [
@@ -33,17 +33,17 @@ var pivotA1bis = new WebDataRocks({
 			}
 		},
     reportcomplete: function() {
-      pivotA1bis.off("reportcomplete");
-      createChartA1bis(); //quand le pivot est créé, le chart peut être créé
+      pivotB1bis.off("reportcomplete");
+      createChartB1bis(); //quand le pivot est créé, le chart peut être créé
     }
 });
 
-function createChartA1bis() { //le chart est créé
-        pivotA1bis.getData({ //avec les données contenues dans le pivot
-    		}, drawChartA1bis, updateChartA1bis);
+function createChartB1bis() { //le chart est créé
+        pivotB1bis.getData({ //avec les données contenues dans le pivot
+    		}, drawChartB1bis, updateChartB1bis);
     };
 
-function prepareDataFunctionA1bis(rawData) {
+function prepareDataFunctionB1bis(rawData) {
     var result = {};
     var labels = [];
     var data = [];
@@ -63,8 +63,8 @@ function prepareDataFunctionA1bis(rawData) {
     return result;
 };
 
-function drawChartA1bis(rawData) {
-    var data = prepareDataFunctionA1bis(rawData);
+function drawChartB1bis(rawData) {
+    var data = prepareDataFunctionB1bis(rawData);
     var data_for_charts = {
         datasets: [{
             data: data.data,
@@ -105,7 +105,7 @@ function drawChartA1bis(rawData) {
         },
     };
 
-    var ctx = document.getElementById("chartcontainerA1bis").getContext('2d');
+    var ctx = document.getElementById("chartcontainerB1bis").getContext('2d');
 		var chart = new Chart(ctx, {
         data: data_for_charts,
         type: 'polarArea',
@@ -113,7 +113,7 @@ function drawChartA1bis(rawData) {
     });
 };
 
-function updateChartA1bis(rawData) {
-    chart.destroyA1bis();
-    drawChartA1bis(rawData);
+function updateChartB1bis(rawData) {
+    chart.destroyB1bis();
+    drawChartB1bis(rawData);
 };

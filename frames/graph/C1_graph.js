@@ -1,12 +1,12 @@
-var pivotA1bis = new WebDataRocks({
-    container: "#pivotA1bis",
+var pivotC1 = new WebDataRocks({
+    container: "#pivotC1",
     toolbar: false, //les boutons du bandeau de base sont masqués et remplacés par le bouton custom d'appel d'un csv local
     height: 400,
     width: 400,
     report: {
 			"dataSource": {
           "dataSourceType": "csv",
-					"filename": "https://zw6072.github.io/depot_data/bloonet/sites_france.csv" //seules les sources en ligne peuvent être lues, sauf à passer par le bouton d'appel d'un csv
+					"filename": "https://zw6072.github.io/depot_data/bloonet/sites_rennes.csv" //seules les sources en ligne peuvent être lues, sauf à passer par le bouton d'appel d'un csv
       },
 			"slice": {
 				"reportFilters": [
@@ -17,7 +17,7 @@ var pivotA1bis = new WebDataRocks({
             "filter": {
                 "type": "top",
                 "quantity": 20,
-                "measure": "Area"
+                "measure": "Population"
               },
 						},
 				],
@@ -27,23 +27,23 @@ var pivotA1bis = new WebDataRocks({
 				],
 				"measures": [
 		 				{
-						"uniqueName": "Area",
+						"uniqueName": "Population",
 		 				}
 	 			]
 			}
 		},
     reportcomplete: function() {
-      pivotA1bis.off("reportcomplete");
-      createChartA1bis(); //quand le pivot est créé, le chart peut être créé
+      pivotC1.off("reportcomplete");
+      createChartC1(); //quand le pivot est créé, le chart peut être créé
     }
 });
 
-function createChartA1bis() { //le chart est créé
-        pivotA1bis.getData({ //avec les données contenues dans le pivot
-    		}, drawChartA1bis, updateChartA1bis);
+function createChartC1() { //le chart est créé
+        pivotC1.getData({ //avec les données contenues dans le pivot
+    		}, drawChartC1, updateChartC1);
     };
 
-function prepareDataFunctionA1bis(rawData) {
+function prepareDataFunctionC1(rawData) {
     var result = {};
     var labels = [];
     var data = [];
@@ -63,8 +63,8 @@ function prepareDataFunctionA1bis(rawData) {
     return result;
 };
 
-function drawChartA1bis(rawData) {
-    var data = prepareDataFunctionA1bis(rawData);
+function drawChartC1(rawData) {
+    var data = prepareDataFunctionC1(rawData);
     var data_for_charts = {
         datasets: [{
             data: data.data,
@@ -105,7 +105,7 @@ function drawChartA1bis(rawData) {
         },
     };
 
-    var ctx = document.getElementById("chartcontainerA1bis").getContext('2d');
+    var ctx = document.getElementById("chartcontainerC1").getContext('2d');
 		var chart = new Chart(ctx, {
         data: data_for_charts,
         type: 'polarArea',
@@ -113,7 +113,7 @@ function drawChartA1bis(rawData) {
     });
 };
 
-function updateChartA1bis(rawData) {
-    chart.destroyA1bis();
-    drawChartA1bis(rawData);
+function updateChartC1(rawData) {
+    chart.destroyC1();
+    drawChartC1(rawData);
 };

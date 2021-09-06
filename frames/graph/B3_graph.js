@@ -1,12 +1,12 @@
-var pivotA3bis = new WebDataRocks({
-    container: "#pivotA3bis",
+var pivotB3 = new WebDataRocks({
+    container: "#pivotB3",
     toolbar: true, //lepivs boutons du bandeau de base sont masqués et remplacés par le bouton custom d'appel d'un csv local
     height: 400,
     width: 400,
     report: {
 			"dataSource": {
           "dataSourceType": "csv",
-					"filename": "https://zw6072.github.io/depot_data/bloonet/sites_france.csv" //seules les sources en ligne peuvent être lues, sauf à passer par le bouton d'appel d'un csv
+					"filename": "https://zw6072.github.io/depot_data/bloonet/sites_bretagne.csv" //seules les sources en ligne peuvent être lues, sauf à passer par le bouton d'appel d'un csv
       },
       "options": {
         "grid": {
@@ -18,7 +18,7 @@ var pivotA3bis = new WebDataRocks({
             "column": {
                 "type": "asc",
                 "tuple": [],
-                "measure": "Area"
+                "measure": "Population"
               },
         },
 				"reportFilters": [
@@ -31,29 +31,29 @@ var pivotA3bis = new WebDataRocks({
           "filter": {
               "type": "top",
               "quantity": 570,
-              "measure": "Area"
+              "measure": "Population"
             },
           },
         ],
 				"measures": [
           {
-          "uniqueName": "Area",
+          "uniqueName": "Population",
           "aggregation": "percent"
           }
 	 			],
 			},
 		},
     reportcomplete: function() {
-      pivotA3bis.off("reportcomplete");
-      createChartA3bis(); //quand le pivot est créé, le chart peut être créé
+      pivotB3.off("reportcomplete");
+      createChartB3(); //quand le pivot est créé, le chart peut être créé
     }
 });
 
-function createChartA3bis() { //le chart est créé
-        pivotA3bis.getData({}, drawChartA3bis, updateChartA3bis);
+function createChartB3() { //le chart est créé
+        pivotB3.getData({}, drawChartB3, updateChartB3);
     };
 
-function prepareDataFunctionA3bis(rawData) {
+function prepareDataFunctionB3(rawData) {
     var result = {};
     var labels = [];
     var data = [];
@@ -73,8 +73,8 @@ function prepareDataFunctionA3bis(rawData) {
     return result;
 };
 
-function drawChartA3bis(rawData) {
-    var data = prepareDataFunctionA3bis(rawData);
+function drawChartB3(rawData) {
+    var data = prepareDataFunctionB3(rawData);
     var data_for_charts = {
         datasets: [{
             data: data.data,
@@ -121,7 +121,7 @@ function drawChartA3bis(rawData) {
         },
     };
 
-    var ctx = document.getElementById("chartcontainerA3bis").getContext('2d');
+    var ctx = document.getElementById("chartcontainerB3").getContext('2d');
 		var chart = new Chart(ctx, {
         data: data_for_charts,
         type: 'doughnut',
@@ -129,7 +129,7 @@ function drawChartA3bis(rawData) {
     });
 };
 
-function updateChartA3bis(rawData) {
-    chart.destroyA3bis();
-    drawChartA3bis(rawData);
+function updateChartB3(rawData) {
+    chart.destroyB3();
+    drawChartB3(rawData);
 };

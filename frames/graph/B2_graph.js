@@ -1,49 +1,58 @@
-var pivotA1 = new WebDataRocks({
-    container: "#pivotA1",
+var pivotB2 = new WebDataRocks({
+    container: "#pivotB2",
     toolbar: false, //les boutons du bandeau de base sont masqués et remplacés par le bouton custom d'appel d'un csv local
-    height: 400,
-    width: 400,
+    height: 580,
+    width: 900,
     report: {
 			"dataSource": {
           "dataSourceType": "csv",
-					"filename": "https://zw6072.github.io/depot_data/bloonet/sites_france.csv" //seules les sources en ligne peuvent être lues, sauf à passer par le bouton d'appel d'un csv
+					"filename": "https://zw6072.github.io/depot_data/site_bretagne.csv" //seules les sources en ligne peuvent être lues, sauf à passer par le bouton d'appel d'un csv
       },
 			"slice": {
-				"reportFilters": [
+        "reportFilters": [
         ],
+        "sorting": {
+            "column": {
+                "type": "asc",
+                "tuple": [],
+                "measure": "Population"
+              },
+        },
 				"rows": [
-						{
-						"uniqueName": "Name",
+            {
+						"uniqueName": "Name", //champs "ent" en ligne
             "filter": {
                 "type": "top",
-                "quantity": 20,
+                "quantity": 200,
                 "measure": "Population"
               },
 						},
 				],
 				"columns": [
 						{
+
 						}
 				],
 				"measures": [
 		 				{
 						"uniqueName": "Population",
+						"aggregation": "sum",
+						"format": "currency"
 		 				}
 	 			]
 			}
 		},
     reportcomplete: function() {
-      pivotA1.off("reportcomplete");
-      createChartA1(); //quand le pivot est créé, le chart peut être créé
+      pivotB2.off("reportcomplete");
+      createChartB2(); //quand le pivot est créé, le chart peut être créé
     }
 });
 
-function createChartA1() { //le chart est créé
-        pivotA1.getData({ //avec les données contenues dans le pivot
-    		}, drawChartA1, updateChartA1);
-    };
+function createChartB2() {
+    pivotB2.getData({}, drawChartB2, updateChartB2);
+}
 
-function prepareDataFunctionA1(rawData) {
+function prepareDataFunctionB2(rawData) {
     var result = {};
     var labels = [];
     var data = [];
@@ -61,13 +70,14 @@ function prepareDataFunctionA1(rawData) {
     result.labels = labels;
     result.data = data;
     return result;
-};
+}
 
-function drawChartA1(rawData) {
-    var data = prepareDataFunctionA1(rawData);
+function drawChartB2(rawData) {
+    var data = prepareDataFunctionB2(rawData);
     var data_for_charts = {
         datasets: [{
             data: data.data,
+            barThickness: 1.5,
             backgroundColor: [
                 'rgba(0, 170, 255, 0.4)',
                 'rgba(105, 175, 35, 0.5)',
@@ -88,13 +98,13 @@ function drawChartA1(rawData) {
         plugins: {
           responsive: true,
           legend: {
-              display: true,
+              display: false,
               position: 'right',
           },
           title: {
               display: true,
               fontSize: 18,
-              text: 'Number of covered households'
+              text: 'Covered households site by site'
           },
           scale: {
               ticks: {
@@ -102,18 +112,41 @@ function drawChartA1(rawData) {
               },
               reverse: false
           },
-        },
+          animation: {
+              animateRotate: false,
+              animateScale: true
+          },
+      },
     };
 
-    var ctx = document.getElementById("chartcontainerA1").getContext('2d');
-		var chart = new Chart(ctx, {
+    var chartColors = { //color shortcut, useful for the function colorChangeValue
+      red: 'rgb(255, 99, 132, 0.8)',
+      blue: 'rgb(54, 162, 235, 0.8)'
+    };
+
+    var ctx = document.getElementById("chartcontainerB2").getContext("2d");
+    var chart = new Chart(ctx, {
         data: data_for_charts,
-        type: 'polarArea',
+        type: 'bar',
         options: options
     });
-};
 
-function updateChartA1(rawData) {
-    chart.destroyA1();
-    drawChartA1(rawData);
-};
+    var colorChangeValue = 5271; //set this to whatever is the deciding color change value
+    var dataset = chart.data.datasets[0];
+    for (var i = 0; i < dataset.data.length; i++) {
+      if (dataset.data[i] > colorChangeValue) {
+        dataset.backgroundColor[i] = chartColors.red;
+      }
+    };
+    for (var i = 0; i < dataset.data.length; i++) {
+      if (dataset.data[i] < colorChangeValue) {
+        dataset.backgroundColor[i] = chartColors.blue;
+      }
+    };
+    chart.update();
+}
+
+function updateChartB2(rawData) {
+    chart.destroyB2();
+    drawChartB2(rawData);
+}
