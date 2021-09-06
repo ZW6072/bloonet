@@ -104,7 +104,7 @@ function drawChartA2bis(rawData) {
           title: {
               display: true,
               fontSize: 18,
-              text: 'Covered households site by site'
+              text: 'Covered area site by site'
           },
           scale: {
               ticks: {

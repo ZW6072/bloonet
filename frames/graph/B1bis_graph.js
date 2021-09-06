@@ -94,7 +94,7 @@ function drawChartB1bis(rawData) {
           title: {
               display: true,
               fontSize: 18,
-              text: 'Number of covered households'
+              text: 'Covered area in km²'
           },
           scale: {
               ticks: {

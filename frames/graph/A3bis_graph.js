@@ -111,7 +111,7 @@ function drawChartA3bis(rawData) {
           title: {
               display: true,
               fontSize: 18,
-              text: 'Percentage of covered households by site'
+              text: 'Percentage of covered area by site'
           },
         },
         elements: {
