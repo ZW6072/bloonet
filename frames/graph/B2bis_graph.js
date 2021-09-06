@@ -104,7 +104,7 @@ function drawChartB2bis(rawData) {
           title: {
               display: true,
               fontSize: 18,
-              text: 'Covered area site by site'
+              text: 'Covered area, in km², site by site'
           },
           scale: {
               ticks: {
