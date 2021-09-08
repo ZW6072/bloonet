@@ -19640,4 +19640,9 @@ body:not(.loaded) {
 body.loaded > div.preloader {
   animation: hidePreloader 0.5s linear 0.5s forwards; }
 
+.transparent{
+ background-color: #ffffff;
+ opacity: 0.4;
+}
+
 /*# sourceMappingURL=style.css.map */
