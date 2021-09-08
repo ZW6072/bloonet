@@ -131,7 +131,7 @@ function drawChartA2(rawData) {
         options: options
     });
 
-    var colorChangeValue = 5271; //set this to whatever is the deciding color change value
+    var colorChangeValue = 10000; //set this to whatever is the deciding color change value
     var dataset = chart.data.datasets[0];
     for (var i = 0; i < dataset.data.length; i++) {
       if (dataset.data[i] > colorChangeValue) {

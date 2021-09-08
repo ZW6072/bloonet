@@ -131,7 +131,7 @@ function drawChartB2bis(rawData) {
         options: options
     });
 
-    var colorChangeValue = 5271; //set this to whatever is the deciding color change value
+    var colorChangeValue = 92; //set this to whatever is the deciding color change value
     var dataset = chart.data.datasets[0];
     for (var i = 0; i < dataset.data.length; i++) {
       if (dataset.data[i] > colorChangeValue) {
