@@ -24,6 +24,30 @@
 				<div class="col">
 					<div class="card">
 						<div class="card-body">
+							<h6 class="mt-3">Rooftop coverage (%)</h6>
+							<table class=table-responsive> <!--colonne de gauche : pivot / colonne de droite : chart-->
+											<tr>
+											<td>
+												<div id="pivotB4bis" style="display:none;"></div> <!--masque le pivot pour ne garder que le chart/"style=display:none;-->  <!--le pivot-->
+											</td>
+											<td>
+												<div><canvas id="chartcontainerB4bis" width="560" height="260"></canvas></div> <!--le chart-->
+											</td>
+											</tr>
+										</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+<section>
+		<div class="container-md">
+			<div class="row">
+				<div class="col">
+					<div class="card">
+						<div class="card-body">
 							<h6 class="mt-3">Global coverage</h6>
 							<div class="table-responsive">
 								<table class="table" width="560">
@@ -119,6 +143,7 @@
 	<script src="graph/B1bis_graph.js"></script>
 	<script src="graph/B2bis_graph.js"></script>
 	<script src="graph/B3bis_graph.js"></script>
+	<script src="graph/B4bis_graph.js"></script>
 
 </body>
 

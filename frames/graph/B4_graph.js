@@ -1,11 +1,11 @@
-var ctx = document.getElementById("chartcontainerA4");
-var chartcontainerA4 = new Chart(ctx, {
+var ctx = document.getElementById("chartcontainerB4");
+var chartcontainerB4 = new Chart(ctx, {
   type: 'bar',
   data: {
     labels: ['High QoS', 'Minimum QoS'],
     datasets: [{
       label: '',
-      data: [85.36, 98.78, 100],
+      data: [79.66, 99.92, 100],
       backgroundColor: [
         'rgba(255, 99, 132, 0.5)',
         'rgba(60, 198, 205, 0.5)',
