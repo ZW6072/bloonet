@@ -4,7 +4,7 @@ var chartcontainerC4 = new Chart(ctx, {
   data: {
     labels: ['High QoS', 'Minimum QoS'],
     datasets: [{
-      label: '',
+      label: 'High QoS / Minimum QoS',
       data: [99.71, 100, 100],
       backgroundColor: [
         'rgba(255, 99, 132, 0.5)',
