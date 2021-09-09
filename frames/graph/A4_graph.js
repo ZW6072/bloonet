@@ -4,7 +4,7 @@ var chartcontainerA4 = new Chart(ctx, {
   data: {
     labels: ['High QoS', 'Minimum QoS'],
     datasets: [{
-      label: 'High QoS"/"Minimum QoS',
+      label: '',
       data: [85.36, 98.78, 100],
       backgroundColor: [
         'rgba(255, 99, 132, 0.5)',
@@ -30,7 +30,12 @@ var chartcontainerA4 = new Chart(ctx, {
     plugins: {
       legend: {
         display: false
-      }
+      },
+      title: {
+          display: true,
+          fontSize: 18,
+          text: 'High QoS / Minimum QoS'
+      },
     }
   }
 });
